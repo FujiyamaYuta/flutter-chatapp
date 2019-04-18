@@ -8,6 +8,14 @@ class CallsScreen extends StatelessWidget {
         "Calls",
         style: new TextStyle(fontSize: 20.0),
       ),
+      // floatingActionButton: new FloatingActionButton(
+      //   backgroundColor: Theme.of(context).accentColor,
+      //   child: new Icon(
+      //     Icons.message,
+      //     color: Colors.white,
+      //   ),
+      //   onPressed: () => print("open chats"),
+      // ),
     );
   }
 }

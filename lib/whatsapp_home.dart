@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterwhatsapp/pages/call_screen.dart';
-import 'package:flutterwhatsapp/pages/camera_screen.dart';
-import 'package:flutterwhatsapp/pages/chat_screen.dart';
+// import 'package:flutterwhatsapp/pages/camera_screen.dart';
+import 'package:flutterwhatsapp/pages/user_screen.dart';
 import 'package:flutterwhatsapp/pages/status_screen.dart';
 
 class WhatsAppHome extends StatefulWidget {
@@ -26,21 +26,21 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("CHATTOOL"),
+        title: new Text("あみだくじメーカー"),
         elevation: 0.7,
         bottom: new TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
             // new Tab(icon: new Icon(Icons.camera_alt)),
-            new Tab(text: "CAMERA"),
-            new Tab(text: "CHATS"),
+            new Tab(text: "参加者"),
+            new Tab(text: "目的"),
             new Tab(
-              text: "STATUS",
+              text: "あみだ",
             ),
-            new Tab(
-              text: "CALLS",
-            ),
+            // new Tab(
+            //   text: "CALLS",
+            // ),
           ],
         ),
         actions: <Widget>[
@@ -55,8 +55,8 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         controller: _tabController,
         children: <Widget>[
           // new CameraScreen(widget.cameras),
-          new CameraScreen(),
-          new ChatScreen(),
+          // new CameraScreen(),
+          new UserScreen(),
           new StatusScreen(),
           new CallsScreen(),
         ],

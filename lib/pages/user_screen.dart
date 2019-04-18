@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import '../models/chat_model.dart';
+import '../models/user_model.dart';
 
-class ChatScreen extends StatefulWidget {
+class UserScreen extends StatefulWidget {
   @override
-  ChatScreenState createState() {
-    return new ChatScreenState();
+  UserScreenState createState() {
+    return new UserScreenState();
   }
 }
 
-class ChatScreenState extends State<ChatScreen> {
+class UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
@@ -31,19 +31,19 @@ class ChatScreenState extends State<ChatScreen> {
                       dummyData[i].name,
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    new Text(
-                      dummyData[i].time,
-                      style: new TextStyle(color: Colors.grey, fontSize: 14.0),
-                    ),
+                    // new Text(
+                    //   dummyData[i].time,
+                    //   style: new TextStyle(color: Colors.grey, fontSize: 14.0),
+                    // ),
                   ],
                 ),
-                subtitle: new Container(
-                  padding: const EdgeInsets.only(top: 5.0),
-                  child: new Text(
-                    dummyData[i].message,
-                    style: new TextStyle(color: Colors.grey, fontSize: 15.0),
-                  ),
-                ),
+                // subtitle: new Container(
+                //   padding: const EdgeInsets.only(top: 5.0),
+                //   child: new Text(
+                //     dummyData[i].message,
+                //     style: new TextStyle(color: Colors.grey, fontSize: 15.0),
+                //   ),
+                // ),
               )
             ],
           ),
