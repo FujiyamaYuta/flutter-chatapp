@@ -17,30 +17,28 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   TabController _tabController;
 
   @override
+  // ** タブの初期値を設定する
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, initialIndex: 1, length: 4);
+    // ** initialIndex → タブの初期値、 length → tab数
+    _tabController = new TabController(vsync: this, initialIndex: 0, length: 3);
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("あみだくじメーカー"),
+        title: new Text("あみだくじアプリ"),
         elevation: 0.7,
         bottom: new TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
-            // new Tab(icon: new Icon(Icons.camera_alt)),
             new Tab(text: "参加者"),
             new Tab(text: "目的"),
             new Tab(
               text: "あみだ",
             ),
-            // new Tab(
-            //   text: "CALLS",
-            // ),
           ],
         ),
         actions: <Widget>[
@@ -54,8 +52,6 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
       body: new TabBarView(
         controller: _tabController,
         children: <Widget>[
-          // new CameraScreen(widget.cameras),
-          // new CameraScreen(),
           new UserScreen(),
           new StatusScreen(),
           new CallsScreen(),
