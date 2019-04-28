@@ -37,13 +37,13 @@ class UserScreenState extends State<UserScreen> {
                     // ),
                   ],
                 ),
-                // subtitle: new Container(
-                //   padding: const EdgeInsets.only(top: 5.0),
-                //   child: new Text(
-                //     dummyData[i].message,
-                //     style: new TextStyle(color: Colors.grey, fontSize: 15.0),
-                //   ),
-                // ),
+                subtitle: new Container(
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: new Text(
+                    dummyData[i].message,
+                    style: new TextStyle(color: Colors.grey, fontSize: 15.0),
+                  ),
+                ),
               )
             ],
           ),

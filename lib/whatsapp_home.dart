@@ -34,7 +34,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
-            new Tab(text: "参加者"),
+            new Tab(text: "参加者登録"),
             new Tab(text: "目的"),
             new Tab(
               text: "あみだ",
@@ -57,14 +57,14 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           new CallsScreen(),
         ],
       ),
-      floatingActionButton: new FloatingActionButton(
-        backgroundColor: Theme.of(context).accentColor,
-        child: new Icon(
-          Icons.message,
-          color: Colors.white,
-        ),
-        onPressed: () => print("open chats"),
-      ),
+      // floatingActionButton: new FloatingActionButton(
+      //   backgroundColor: Theme.of(context).accentColor,
+      //   child: new Icon(
+      //     Icons.message,
+      //     color: Colors.white,
+      //   ),
+      //   onPressed: () => print("open chats"),
+      // ),
     );
   }
 }

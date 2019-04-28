@@ -32,34 +32,4 @@ List<UserModel> dummyData = [
       time: "10:30",
       avatarUrl:
           "https://ohmygod.jp/assets/img/fujiwara.jpg"),
-  // new UserModel(
-  //     name: "YutaFujiwara",
-  //     message: "I'm the fastest man alive!",
-  //     // time: "12:30",
-  //     avatarUrl:
-  //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
-  // new UserModel(
-  //     name: "YutaFujiwara",
-  //     message: "Hey Flutter, You are so cool !",
-  //     // time: "15:30",
-  //     avatarUrl:
-  //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
-  //   new UserModel(
-  //     name: "YutaFujiwara",
-  //     message: "I'm the fastest man alive!",
-  //     // time: "12:30",
-  //     avatarUrl:
-  //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
-  // new UserModel(
-  //     name: "YutaFujiwara",
-  //     message: "I'm the fastest man alive!",
-  //     // time: "12:30",
-  //     avatarUrl:
-  //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
-  // new UserModel(
-  //     name: "YutaFujiwara",
-  //     message: "I'm the fastest man alive!",
-  //     // time: "12:30",
-  //     avatarUrl:
-  //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
 ];
