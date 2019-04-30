@@ -43,31 +43,33 @@ class _MyHomePageState extends State<MyHomePage>{
     super.initState();
   }
 
+
   Widget buildListTile(BuildContext context, String item) {
-    Widget secondary;
-    if (_itemType == _MaterialListType.twoLine) {
-      secondary = const Text('Additional item information.');
-    } else if (_itemType == _MaterialListType.threeLine) {
-      secondary = const Text(
-        'Even more additional list item information appears on line three.',
-      );
-    }
-    return MergeSemantics(
-      child: ListTile(
-        isThreeLine: _itemType == _MaterialListType.threeLine,
-        dense: _dense,
-        leading: _showAvatars ? ExcludeSemantics(child: CircleAvatar(child: Text(item))) : null,
-        title: Text('This item represents $item.'),
-        subtitle: secondary,
-        trailing: _showIcons ? Icon(Icons.info, color: Theme.of(context).disabledColor) : null,
-      ),
-    );
+    // Widget secondary;
+    // if (_itemType == _MaterialListType.twoLine) {
+    //   secondary = const Text('Additional item information.');
+    // } else if (_itemType == _MaterialListType.threeLine) {
+    //   secondary = const Text(
+    //     'Even more additional list item information appears on line three.',
+    //   );
+    // }
+    // return MergeSemantics(
+    //   child: ListTile(
+    //     isThreeLine: _itemType == _MaterialListType.threeLine,
+    //     dense: _dense,
+    //     leading: _showAvatars ? ExcludeSemantics(child: CircleAvatar(child: Text(item))) : null,
+    //     title: Text('This item represents $item.'),
+    //     subtitle: secondary,
+    //     trailing: _showIcons ? Icon(Icons.info, color: Theme.of(context).disabledColor) : null,
+    //   ),
+    // );
   }
 
   @override
   Widget build(BuildContext context){
 
     Iterable<Widget> listTiles = items.map<Widget>((String item) => buildListTile(context, item));
+    listTiles = ListTile.divideTiles(context: context, tiles: listTiles);
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -134,8 +136,7 @@ class _MyHomePageState extends State<MyHomePage>{
                   )
                 ),
                 onPressed: buttonPressed,
-              )
-
+              ),
             ],
           )
       ) 
@@ -145,6 +146,8 @@ class _MyHomePageState extends State<MyHomePage>{
 void buttonPressed(){
   setState((){
     _message = 'you said ' + controller.text;
+    debugPrint('======= ${widget.title}');
+    debugPrint('======= ${controller.text}');
   });
 }
 
