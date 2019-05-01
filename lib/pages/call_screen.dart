@@ -122,21 +122,36 @@ class _MyHomePageState extends State<MyHomePage>{
                   maxLines: 1,
                 ),
               ),
-
-              FlatButton(
-                padding:EdgeInsets.all(10.0),
-                color:Colors.lightBlueAccent,
-                child: Text(
-                  "登録する",
-                  style:TextStyle(
-                    fontSize:16.0,
-                    color: Colors.blue,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "Roboto"
-                  )
-                ),
-                onPressed: buttonPressed,
+              ButtonBar(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  RaisedButton.icon(
+                    icon: const Icon(Icons.add, size: 18.0),
+                    label: const Text('登録する', semanticsLabel: 'RAISED BUTTON 2'),
+                    onPressed: buttonPressed,
+                    color: Theme.of(context).primaryColor
+                  ),
+                  // OutlineButton.icon(
+                  //   icon: const Icon(Icons.add, size: 18.0),
+                  //   label: const Text('DISABLED', semanticsLabel: 'DISABLED BUTTON 6'),
+                  //   onPressed: null,
+                  // ),
+                ],
               ),
+              // FlatButton(
+              //   padding:EdgeInsets.all(10.0),
+              //   color:Colors.lightBlueAccent,
+              //   child: Text(
+              //     "登録する",
+              //     style:TextStyle(
+              //       fontSize:16.0,
+              //       color: Colors.blue,
+              //       fontWeight: FontWeight.w400,
+              //       fontFamily: "Roboto"
+              //     )
+              //   ),
+              //   onPressed: buttonPressed,
+              // ),
             ],
           )
       ) 
@@ -148,6 +163,10 @@ void buttonPressed(){
     _message = 'you said ' + controller.text;
     debugPrint('======= ${widget.title}');
     debugPrint('======= ${controller.text}');
+    dummyData.add(new UserModel(name: controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:"../assets/image/icon_1.png"));
+    for(int i=0; i<dummyData.length; i++){
+      debugPrint('======= ${dummyData[i].name}');
+    }
   });
 }
 

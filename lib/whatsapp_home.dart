@@ -36,9 +36,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           tabs: <Widget>[
             new Tab(text: "参加者登録"),
             new Tab(text: "目的"),
-            new Tab(
-              text: "あみだ",
-            ),
+            new Tab(text: "あみだ"),
           ],
         ),
         actions: <Widget>[
