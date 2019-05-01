@@ -167,7 +167,9 @@ void buttonPressed(){
     debugPrint('======= ${widget.title}');
     debugPrint('======= ${controller.text}');
     Random random = new Random();
-    int num = random.nextInt(23); // 0〜22までの乱数を取得
+    var iconUrlLenght = iconUrlData.length;
+    // debugPrint('===iconUrlLenght==== ${iconUrlLenght}');
+    int num = random.nextInt(iconUrlLenght + 1); // 0〜22までの乱数を取得
     dummyData.add(new UserModel(name: controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:iconUrlData[num].avatarUrl));
     for(int i=0; i<dummyData.length; i++){
       debugPrint('======= ${dummyData[i].name}');
