@@ -26,8 +26,4 @@ List<IconModel> iconUrlData = [
   new IconModel(avatarUrl:"https://firebasestorage.googleapis.com/v0/b/bingo-card.appspot.com/o/amida-icon%2Ficon_20.png?alt=media&token=baeb97f0-fe47-44ca-81eb-8cb161f3cdc8"),
   new IconModel(avatarUrl:"https://firebasestorage.googleapis.com/v0/b/bingo-card.appspot.com/o/amida-icon%2Ficon_21.png?alt=media&token=0f2aceb2-a049-4ede-816c-3c92d167b3ab"),
   new IconModel(avatarUrl:"https://firebasestorage.googleapis.com/v0/b/bingo-card.appspot.com/o/amida-icon%2Ficon_22.png?alt=media&token=b11945f0-a473-473f-9edd-3e9929260ab5"),
-  new IconModel(avatarUrl:""),
-  new IconModel(avatarUrl:""),
-  new IconModel(avatarUrl:""),
-  new IconModel(avatarUrl:""),
 ];

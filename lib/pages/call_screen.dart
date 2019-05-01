@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 import '../models/user_model.dart';
+import '../models/icon_url_model.dart';
+
 
 class CallsScreen extends StatelessWidget {
 
@@ -163,7 +166,9 @@ void buttonPressed(){
     _message = 'you said ' + controller.text;
     debugPrint('======= ${widget.title}');
     debugPrint('======= ${controller.text}');
-    dummyData.add(new UserModel(name: controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:"../assets/image/icon_1.png"));
+    Random random = new Random();
+    int num = random.nextInt(23); // 0〜22までの乱数を取得
+    dummyData.add(new UserModel(name: controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:iconUrlData[num].avatarUrl));
     for(int i=0; i<dummyData.length; i++){
       debugPrint('======= ${dummyData[i].name}');
     }
