@@ -153,12 +153,19 @@ void buttonPressed(){
     int num = random.nextInt(iconUrlLenght + 1); // 0〜22までの乱数を取得
     if(0 != dummyData.length){
       userNum = dummyData[dummyData.length-1].userNumber;
+      userNum ++;
+      debugPrint('==== userNum - if ==== ${userNum}');
+    }else{
+      userNum = 1;
+      // userNum = dummyData[dummyData.length].userNumber;
+      debugPrint('==== userNum - else ==== ${userNum}');
     }
     dummyData.add(new UserModel(name: controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
     for(int i=0; i<dummyData.length; i++){
-      debugPrint('======= ${dummyData[i].name}');
-      debugPrint('==== userNumber ==== ${dummyData[i].userNumber}');
-      debugPrint('==== dummyData.length ==== ${dummyData.length}');
+      debugPrint('=== dummyData[i].name ==== ${dummyData[i].name}');
+      debugPrint('==== dummyData[i].userNumber ==== ${dummyData[i].userNumber}');
+      debugPrint('==== userNum==== ${userNum}');
+      // debugPrint('==== dummyData.length ==== ${dummyData.length}');
     }
   });
 }

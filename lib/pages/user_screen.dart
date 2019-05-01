@@ -10,10 +10,15 @@ class UserScreen extends StatefulWidget {
 
 class UserScreenState extends State<UserScreen> {
 
-  void buttonPressed(){
-    // setState((){
-      debugPrint('=== DELETE ===');
-    // });
+  void buttonPressed(int userNumber){
+    debugPrint('=== DELETE ===${userNumber}');
+    // build(BuildContext context);
+    setState((){
+    dummyData.removeLast();
+    // new UserScreenState();
+    // new UserScreen();
+    //   debugPrint('=== DELETE ===');
+    });
   }
 
   @override
@@ -56,7 +61,8 @@ class UserScreenState extends State<UserScreen> {
                     child: FloatingActionButton(
                       // color: Colors.red ,
                       backgroundColor: Colors.orange[900],
-                      onPressed: buttonPressed,
+                      // onPressed: buttonPressed(dummyData[i].userNumber),
+                      onPressed: () { buttonPressed(dummyData[i].userNumber); },
                       child: Icon(Icons.close,color: Colors.white,size: 20.0,)
                     ),
                   ),
