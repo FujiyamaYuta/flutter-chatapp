@@ -2,8 +2,9 @@ class UserModel {
   final String name;
   final String message;
   final String avatarUrl;
+  final int userNumber;
 
-  UserModel({this.name, this.message, this.avatarUrl});
+  UserModel({this.name, this.message, this.avatarUrl,this.userNumber});
 }
 
 List<UserModel> dummyData = [

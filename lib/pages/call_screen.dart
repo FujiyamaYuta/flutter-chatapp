@@ -134,27 +134,8 @@ class _MyHomePageState extends State<MyHomePage>{
                     onPressed: buttonPressed,
                     color: Theme.of(context).primaryColor
                   ),
-                  // OutlineButton.icon(
-                  //   icon: const Icon(Icons.add, size: 18.0),
-                  //   label: const Text('DISABLED', semanticsLabel: 'DISABLED BUTTON 6'),
-                  //   onPressed: null,
-                  // ),
                 ],
               ),
-              // FlatButton(
-              //   padding:EdgeInsets.all(10.0),
-              //   color:Colors.lightBlueAccent,
-              //   child: Text(
-              //     "登録する",
-              //     style:TextStyle(
-              //       fontSize:16.0,
-              //       color: Colors.blue,
-              //       fontWeight: FontWeight.w400,
-              //       fontFamily: "Roboto"
-              //     )
-              //   ),
-              //   onPressed: buttonPressed,
-              // ),
             ],
           )
       ) 
@@ -163,16 +144,21 @@ class _MyHomePageState extends State<MyHomePage>{
 
 void buttonPressed(){
   setState((){
-    _message = 'you said ' + controller.text;
+    _message = controller.text;
     debugPrint('======= ${widget.title}');
     debugPrint('======= ${controller.text}');
     Random random = new Random();
-    var iconUrlLenght = iconUrlData.length;
-    // debugPrint('===iconUrlLenght==== ${iconUrlLenght}');
+    int userNum = dummyData.length;
+    int iconUrlLenght = iconUrlData.length;
     int num = random.nextInt(iconUrlLenght + 1); // 0〜22までの乱数を取得
-    dummyData.add(new UserModel(name: controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:iconUrlData[num].avatarUrl));
+    if(0 != dummyData.length){
+      userNum = dummyData[dummyData.length-1].userNumber;
+    }
+    dummyData.add(new UserModel(name: controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
     for(int i=0; i<dummyData.length; i++){
       debugPrint('======= ${dummyData[i].name}');
+      debugPrint('==== userNumber ==== ${dummyData[i].userNumber}');
+      debugPrint('==== dummyData.length ==== ${dummyData.length}');
     }
   });
 }

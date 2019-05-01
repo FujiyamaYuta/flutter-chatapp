@@ -9,6 +9,13 @@ class UserScreen extends StatefulWidget {
 }
 
 class UserScreenState extends State<UserScreen> {
+
+  void buttonPressed(){
+    // setState((){
+      debugPrint('=== DELETE ===');
+    // });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
@@ -16,7 +23,7 @@ class UserScreenState extends State<UserScreen> {
       itemBuilder: (context, i) => new Column(
             children: <Widget>[
               new Divider(
-                height: 10.0,
+                height: 0,
               ),
               new ListTile(
                 leading: new CircleAvatar(
@@ -31,10 +38,6 @@ class UserScreenState extends State<UserScreen> {
                       dummyData[i].name,
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    // new Text(
-                    //   dummyData[i].time,
-                    //   style: new TextStyle(color: Colors.grey, fontSize: 14.0),
-                    // ),
                   ],
                 ),
                 subtitle: new Container(
@@ -44,9 +47,39 @@ class UserScreenState extends State<UserScreen> {
                     style: new TextStyle(color: Colors.grey, fontSize: 15.0),
                   ),
                 ),
+
+                trailing:
+                new Container(
+                  height: 28.0,
+                  width: 28.0,
+                  child: FittedBox(
+                    child: FloatingActionButton(
+                      // color: Colors.red ,
+                      backgroundColor: Colors.orange[900],
+                      onPressed: buttonPressed,
+                      child: Icon(Icons.close,color: Colors.white,size: 20.0,)
+                    ),
+                  ),
+                ),
+                // new FloatingActionButton(
+                //   onPressed: buttonPressed,
+                //   tooltip: 'set message',
+                //   child: Icon(Icons.close,color: Colors.white,size: 20.0,)
+                // ),
+                
+                // trailing: new Icon(
+                  
+                //   // アイコン画像の設定
+                //   Icons.close,
+                //   // アイコンの色の設定
+                //   color:Colors.red,
+                //   onPressed: buttonPressed
+                // ),
+
               )
             ],
           ),
     );
   }
+
 }
