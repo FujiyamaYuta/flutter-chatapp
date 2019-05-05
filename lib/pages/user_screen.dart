@@ -114,20 +114,31 @@ class UserScreenState extends State<UserScreen> {
   }
 
   void UserDel(int userNumber){
-    debugPrint('=== DELETE ===${userNumber}');
     setState((){
       // 指定のリストを削除する
+
+      // ToolTipを表示
+      String userName = dummyData[userNumber].name;
+      Scaffold.of(context).showSnackBar(SnackBar(
+        // backgroundColor: Colors.amberAccent,
+        content: Text('$userName\ さんを削除しました。')
+      ));
+
       dummyData.removeAt(userNumber);
+
     });
   }
 
   void buttonAdd(){
     setState((){
       _message = _controller.text;
+      _message = _message.replaceFirst(new RegExp(r"^\s+"), "");
+      _message = _message.replaceFirst(new RegExp(r"\s+$"), ""); 
 
       if(_message == null || _message == ""){
         // ToolTipを表示
         Scaffold.of(context).showSnackBar(const SnackBar(
+            // backgroundColor: Colors.cyan,
             content: Text('名前が入力されていません。')
         )); 
         return;
