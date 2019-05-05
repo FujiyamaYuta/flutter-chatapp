@@ -87,13 +87,13 @@ class UserScreenState extends State<UserScreen> {
                     ),
                   ],
                 ),
-                subtitle: new Container(
-                  padding: const EdgeInsets.only(top: 5.0),
-                  child: new Text(
-                    dummyData[i].message,
-                    style: new TextStyle(color: Colors.grey, fontSize: 15.0),
-                  ),
-                ),
+                // subtitle: new Container(
+                //   padding: const EdgeInsets.only(top: 5.0),
+                //   child: new Text(
+                //     dummyData[i].message,
+                //     style: new TextStyle(color: Colors.grey, fontSize: 15.0),
+                //   ),
+                // ),
 
                 trailing:
                 new Container(
@@ -124,6 +124,15 @@ class UserScreenState extends State<UserScreen> {
   void buttonAdd(){
     setState((){
       _message = _controller.text;
+
+      if(_message == null || _message == ""){
+        // ToolTipを表示
+        Scaffold.of(context).showSnackBar(const SnackBar(
+            content: Text('名前が入力されていません。')
+        )); 
+        return;
+      }
+
       Random random = new Random();
       int userNum = dummyData.length;
       int iconUrlLenght = iconUrlData.length;
@@ -134,7 +143,7 @@ class UserScreenState extends State<UserScreen> {
       }else{
         userNum = 1;
       }
-      dummyData.add(new UserModel(name: _controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
+      dummyData.add(new UserModel(name: _controller.text,avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
       _controller.clear();
     });
   }
