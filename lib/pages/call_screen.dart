@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage>{
                       color: CupertinoColors.activeGreen,
                       minSize: 0.0,
                       child: const Icon(
-                        CupertinoIcons.up_arrow,
+                        CupertinoIcons.add_circled,
                         size: 21.0,
                         color: CupertinoColors.white,
                       ),

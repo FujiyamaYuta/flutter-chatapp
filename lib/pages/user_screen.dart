@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import '../models/user_model.dart';
+import 'package:flutter/cupertino.dart';
+import 'dart:math';
+import '../models/user_model.dart';
+import '../models/icon_url_model.dart';
 
 class UserScreen extends StatefulWidget {
   @override
@@ -10,19 +14,59 @@ class UserScreen extends StatefulWidget {
 
 class UserScreenState extends State<UserScreen> {
 
-  void buttonPressed(int userNumber){
-    debugPrint('=== DELETE ===${userNumber}');
-    // build(BuildContext context);
-    setState((){
-      // 指定のリストを削除する
-      // dummyData.removeLast();
-      dummyData.removeAt(userNumber);
+  // var title;
+  var _message;
+  final _controller = TextEditingController();
 
-    });
+  // これがないとリストが表示されないっぽい
+  Widget buildListTile(BuildContext context, String item) {
   }
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        // title: new Text("あみだくじアプリ"),
+        title:CupertinoTextField(
+          controller: _controller,
+          textCapitalization: TextCapitalization.sentences,
+          placeholder: '名前',
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 0.0,
+              color: CupertinoColors.inactiveGray,
+            ),
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          maxLines: null,
+          keyboardType: TextInputType.multiline,
+          prefix: const Padding(padding: EdgeInsets.symmetric(horizontal: 4.0)),
+          suffix: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: CupertinoButton(
+              color: CupertinoColors.activeGreen,
+              minSize: 0.0,
+              child: const Icon(
+                CupertinoIcons.add_circled,
+                size: 21.0,
+                color: CupertinoColors.white,
+              ),
+              padding: const EdgeInsets.all(2.0),
+              borderRadius: BorderRadius.circular(15.0),
+              onPressed: buttonAdd,
+            ),
+          ),
+
+        ),
+      ),
+      body: Builder(
+        builder: _buildBody,
+      ),
+    );
+  }
+
+  // @override
+  Widget _buildBody(BuildContext context) {
     return new ListView.builder(
       itemCount: dummyData.length,
       itemBuilder: (context, i) => new Column(
@@ -59,33 +103,55 @@ class UserScreenState extends State<UserScreen> {
                   width: 28.0,
                   child: FittedBox(
                     child: FloatingActionButton(
-                      // color: Colors.red ,
                       backgroundColor: Colors.orange[900],
-                      // onPressed: buttonPressed(dummyData[i].userNumber),
-                      onPressed: () { buttonPressed(i); },
+                      onPressed: () { UserDel(i); },
                       child: Icon(Icons.close,color: Colors.white,size: 20.0,)
                     ),
                   ),
                 ),
-                // new FloatingActionButton(
-                //   onPressed: buttonPressed,
-                //   tooltip: 'set message',
-                //   child: Icon(Icons.close,color: Colors.white,size: 20.0,)
-                // ),
-                
-                // trailing: new Icon(
-                  
-                //   // アイコン画像の設定
-                //   Icons.close,
-                //   // アイコンの色の設定
-                //   color:Colors.red,
-                //   onPressed: buttonPressed
-                // ),
-
               )
             ],
           ),
     );
+  }
+
+  void UserDel(int userNumber){
+    debugPrint('=== DELETE ===${userNumber}');
+    // build(BuildContext context);
+    setState((){
+      // 指定のリストを削除する
+      // dummyData.removeLast();
+      dummyData.removeAt(userNumber);
+    });
+  }
+
+  void buttonAdd(){
+    setState((){
+      _message = _controller.text;
+      // debugPrint('======= ${widget.title}');
+      debugPrint('======= ${_controller.text}');
+      Random random = new Random();
+      int userNum = dummyData.length;
+      int iconUrlLenght = iconUrlData.length;
+      int num = random.nextInt(iconUrlLenght + 1); // 0〜22までの乱数を取得
+      if(0 != dummyData.length){
+        userNum = dummyData[dummyData.length-1].userNumber;
+        userNum ++;
+        debugPrint('==== userNum - if ==== ${userNum}');
+      }else{
+        userNum = 1;
+        // userNum = dummyData[dummyData.length].userNumber;
+        debugPrint('==== userNum - else ==== ${userNum}');
+      }
+      dummyData.add(new UserModel(name: _controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
+      for(int i=0; i<dummyData.length; i++){
+        debugPrint('=== dummyData[i].name ==== ${dummyData[i].name}');
+        debugPrint('==== dummyData[i].userNumber ==== ${dummyData[i].userNumber}');
+        debugPrint('==== userNum==== ${userNum}');
+        // debugPrint('==== dummyData.length ==== ${dummyData.length}');
+      }
+      _controller.clear();
+    });
   }
 
 }
