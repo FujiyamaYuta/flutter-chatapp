@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../models/user_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:math';
 import '../models/user_model.dart';
@@ -26,7 +25,7 @@ class UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // title: new Text("あみだくじアプリ"),
+        backgroundColor: Colors.white,
         title:CupertinoTextField(
           controller: _controller,
           textCapitalization: TextCapitalization.sentences,
@@ -56,7 +55,6 @@ class UserScreenState extends State<UserScreen> {
               onPressed: buttonAdd,
             ),
           ),
-
         ),
       ),
       body: Builder(
@@ -117,10 +115,8 @@ class UserScreenState extends State<UserScreen> {
 
   void UserDel(int userNumber){
     debugPrint('=== DELETE ===${userNumber}');
-    // build(BuildContext context);
     setState((){
       // 指定のリストを削除する
-      // dummyData.removeLast();
       dummyData.removeAt(userNumber);
     });
   }
@@ -128,8 +124,6 @@ class UserScreenState extends State<UserScreen> {
   void buttonAdd(){
     setState((){
       _message = _controller.text;
-      // debugPrint('======= ${widget.title}');
-      debugPrint('======= ${_controller.text}');
       Random random = new Random();
       int userNum = dummyData.length;
       int iconUrlLenght = iconUrlData.length;
@@ -137,19 +131,10 @@ class UserScreenState extends State<UserScreen> {
       if(0 != dummyData.length){
         userNum = dummyData[dummyData.length-1].userNumber;
         userNum ++;
-        debugPrint('==== userNum - if ==== ${userNum}');
       }else{
         userNum = 1;
-        // userNum = dummyData[dummyData.length].userNumber;
-        debugPrint('==== userNum - else ==== ${userNum}');
       }
       dummyData.add(new UserModel(name: _controller.text,message: "Hey Flutter, You are so amazing !",avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
-      for(int i=0; i<dummyData.length; i++){
-        debugPrint('=== dummyData[i].name ==== ${dummyData[i].name}');
-        debugPrint('==== dummyData[i].userNumber ==== ${dummyData[i].userNumber}');
-        debugPrint('==== userNum==== ${userNum}');
-        // debugPrint('==== dummyData.length ==== ${dummyData.length}');
-      }
       _controller.clear();
     });
   }
