@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'dart:math';
 import '../models/user_model.dart';
 import '../models/icon_url_model.dart';
@@ -34,7 +35,9 @@ class MyHomePage extends StatefulWidget{
 class _MyHomePageState extends State<MyHomePage>{
   
   var _message;
+  // final controller = TextEditingController();
   final controller = TextEditingController();
+  // final _chatTextController = TextEditingController();
 
   List<String> items = <String>[
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
@@ -48,24 +51,6 @@ class _MyHomePageState extends State<MyHomePage>{
 
 
   Widget buildListTile(BuildContext context, String item) {
-    // Widget secondary;
-    // if (_itemType == _MaterialListType.twoLine) {
-    //   secondary = const Text('Additional item information.');
-    // } else if (_itemType == _MaterialListType.threeLine) {
-    //   secondary = const Text(
-    //     'Even more additional list item information appears on line three.',
-    //   );
-    // }
-    // return MergeSemantics(
-    //   child: ListTile(
-    //     isThreeLine: _itemType == _MaterialListType.threeLine,
-    //     dense: _dense,
-    //     leading: _showAvatars ? ExcludeSemantics(child: CircleAvatar(child: Text(item))) : null,
-    //     title: Text('This item represents $item.'),
-    //     subtitle: secondary,
-    //     trailing: _showIcons ? Icon(Icons.info, color: Theme.of(context).disabledColor) : null,
-    //   ),
-    // );
   }
 
   @override
@@ -96,46 +81,67 @@ class _MyHomePageState extends State<MyHomePage>{
                 )
               ),
 
-              // Padding(
-              //   padding:EdgeInsets.all(10.0),
-              //   child:ListView(
-              //     padding: EdgeInsets.symmetric(vertical: false ? 4.0 : 8.0),
-              //     // itemCount: dummyData.length,
-              //     // padding: EdgeInsets.symmetric(vertical: false ? 4.0 : 8.0),
-              //     // children: listTiles.toList(),
-              //   ),
-              // ),
-
               Padding(
                 padding:EdgeInsets.all(10.0),
-                child:TextFormField(
-                  // keyboardType: TextInputType.number,
+                child:CupertinoTextField(
                   controller: controller,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Name',
-                    filled: true,
-                    icon: Icon(Icons.person),
-                    hintText: 'What do people call you?',
-                    // hintText: '参加者の名前',
-                    // prefixText: '\$',
-                    // suffixText: 'USD',
-                    suffixStyle: TextStyle(color: Colors.green)
+                  textCapitalization: TextCapitalization.sentences,
+                  placeholder: '名前',
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 0.0,
+                      color: CupertinoColors.inactiveGray,
+                    ),
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
-                  maxLines: 1,
+                  maxLines: null,
+                  keyboardType: TextInputType.multiline,
+                  prefix: const Padding(padding: EdgeInsets.symmetric(horizontal: 4.0)),
+                  suffix: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: CupertinoButton(
+                      color: CupertinoColors.activeGreen,
+                      minSize: 0.0,
+                      child: const Icon(
+                        CupertinoIcons.up_arrow,
+                        size: 21.0,
+                        color: CupertinoColors.white,
+                      ),
+                      padding: const EdgeInsets.all(2.0),
+                      borderRadius: BorderRadius.circular(15.0),
+                      onPressed: buttonPressed,
+                    ),
+                  ),
                 ),
               ),
-              ButtonBar(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  RaisedButton.icon(
-                    icon: const Icon(Icons.add, size: 18.0),
-                    label: const Text('登録する', semanticsLabel: 'RAISED BUTTON 2'),
-                    onPressed: buttonPressed,
-                    color: Theme.of(context).primaryColor
-                  ),
-                ],
-              ),
+
+              // Padding(
+              //   padding:EdgeInsets.all(10.0),
+              //   child:TextFormField(
+              //     // keyboardType: TextInputType.number,
+              //     controller: controller,
+              //     decoration: const InputDecoration(
+              //       border: OutlineInputBorder(),
+              //       labelText: 'Name',
+              //       filled: true,
+              //       icon: Icon(Icons.person),
+              //       hintText: 'What do people call you?',
+              //       suffixStyle: TextStyle(color: Colors.green)
+              //     ),
+              //     maxLines: 1,
+              //   ),
+              // ),
+              // ButtonBar(
+              //   mainAxisSize: MainAxisSize.min,
+              //   children: <Widget>[
+              //     RaisedButton.icon(
+              //       icon: const Icon(Icons.add, size: 18.0),
+              //       label: const Text('登録する', semanticsLabel: 'RAISED BUTTON 2'),
+              //       onPressed: buttonPressed,
+              //       color: Theme.of(context).primaryColor
+              //     ),
+              //   ],
+              // ),
             ],
           )
       ) 
@@ -167,6 +173,7 @@ void buttonPressed(){
       debugPrint('==== userNum==== ${userNum}');
       // debugPrint('==== dummyData.length ==== ${dummyData.length}');
     }
+    controller.clear();
   });
 }
 

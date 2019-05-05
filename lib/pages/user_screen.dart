@@ -14,10 +14,10 @@ class UserScreenState extends State<UserScreen> {
     debugPrint('=== DELETE ===${userNumber}');
     // build(BuildContext context);
     setState((){
-    dummyData.removeLast();
-    // new UserScreenState();
-    // new UserScreen();
-    //   debugPrint('=== DELETE ===');
+      // 指定のリストを削除する
+      // dummyData.removeLast();
+      dummyData.removeAt(userNumber);
+
     });
   }
 
@@ -62,7 +62,7 @@ class UserScreenState extends State<UserScreen> {
                       // color: Colors.red ,
                       backgroundColor: Colors.orange[900],
                       // onPressed: buttonPressed(dummyData[i].userNumber),
-                      onPressed: () { buttonPressed(dummyData[i].userNumber); },
+                      onPressed: () { buttonPressed(i); },
                       child: Icon(Icons.close,color: Colors.white,size: 20.0,)
                     ),
                   ),
