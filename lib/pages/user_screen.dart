@@ -154,7 +154,7 @@ class UserScreenState extends State<UserScreen> {
       }else{
         userNum = 1;
       }
-      dummyData.add(new UserModel(name: _controller.text,avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
+      dummyData.add(new UserModel(name: _message,avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
       _controller.clear();
     });
   }
