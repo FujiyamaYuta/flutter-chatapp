@@ -87,13 +87,6 @@ class UserScreenState extends State<UserScreen> {
                     ),
                   ],
                 ),
-                // subtitle: new Container(
-                //   padding: const EdgeInsets.only(top: 5.0),
-                //   child: new Text(
-                //     dummyData[i].message,
-                //     style: new TextStyle(color: Colors.grey, fontSize: 15.0),
-                //   ),
-                // ),
 
                 trailing:
                 new Container(
@@ -132,15 +125,14 @@ class UserScreenState extends State<UserScreen> {
   void buttonAdd(){
     setState((){
       _message = _controller.text;
-      _message = _message.replaceFirst(new RegExp(r"^\s+"), "");
-      _message = _message.replaceFirst(new RegExp(r"\s+$"), ""); 
+      _message = _message.replaceFirst(new RegExp(r"^\s+"), ""); //** 文字列から空白を削除
+      _message = _message.replaceFirst(new RegExp(r"\s+$"), ""); //** 文字列から空白を削除
 
       if(_message == null || _message == ""){
         // ToolTipを表示
         Scaffold.of(context).showSnackBar(const SnackBar(
-            // backgroundColor: Colors.cyan,
             content: Text('名前が入力されていません。')
-        )); 
+        ));
         return;
       }
 
