@@ -12,21 +12,19 @@ class UserScreen extends StatefulWidget {
 }
 
 class UserScreenState extends State<UserScreen> {
-
   // var title;
   var _message;
   final _controller = TextEditingController();
 
   // これがないとリストが表示されないっぽい
-  Widget buildListTile(BuildContext context, String item) {
-  }
+  Widget buildListTile(BuildContext context, String item) {}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title:CupertinoTextField(
+        title: CupertinoTextField(
           controller: _controller,
           textCapitalization: TextCapitalization.sentences,
           placeholder: '名前',
@@ -76,7 +74,8 @@ class UserScreenState extends State<UserScreen> {
                 leading: new CircleAvatar(
                   foregroundColor: Theme.of(context).primaryColor,
                   backgroundColor: Colors.grey,
-                  backgroundImage: new NetworkImage(dummyData[i].avatarUrl),
+                  backgroundImage: new AssetImage(dummyData[i].avatarUrl)
+                  // backgroundImage: new NetworkImage(dummyData[i].avatarUrl),
                 ),
                 title: new Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,17 +86,20 @@ class UserScreenState extends State<UserScreen> {
                     ),
                   ],
                 ),
-
-                trailing:
-                new Container(
+                trailing: new Container(
                   height: 28.0,
                   width: 28.0,
                   child: FittedBox(
                     child: FloatingActionButton(
-                      backgroundColor: Colors.orange[900],
-                      onPressed: () { UserDel(i); },
-                      child: Icon(Icons.close,color: Colors.white,size: 20.0,)
-                    ),
+                        backgroundColor: Colors.orange[900],
+                        onPressed: () {
+                          UserDel(i);
+                        },
+                        child: Icon(
+                          Icons.close,
+                          color: Colors.white,
+                          size: 20.0,
+                        )),
                   ),
                 ),
               )
@@ -106,33 +108,30 @@ class UserScreenState extends State<UserScreen> {
     );
   }
 
-  void UserDel(int userNumber){
-    setState((){
+  void UserDel(int userNumber) {
+    setState(() {
       // 指定のリストを削除する
 
       // ToolTipを表示
       String userName = dummyData[userNumber].name;
       Scaffold.of(context).showSnackBar(SnackBar(
-        // backgroundColor: Colors.amberAccent,
-        content: Text('$userName\ さんを削除しました。')
-      ));
+          // backgroundColor: Colors.amberAccent,
+          content: Text('$userName\ さんを削除しました。')));
 
       dummyData.removeAt(userNumber);
-
     });
   }
 
-  void buttonAdd(){
-    setState((){
+  void buttonAdd() {
+    setState(() {
       _message = _controller.text;
       _message = _message.replaceFirst(new RegExp(r"^\s+"), ""); //** 文字列から空白を削除
       _message = _message.replaceFirst(new RegExp(r"\s+$"), ""); //** 文字列から空白を削除
 
-      if(_message == null || _message == ""){
+      if (_message == null || _message == "") {
         // ToolTipを表示
-        Scaffold.of(context).showSnackBar(const SnackBar(
-            content: Text('名前が入力されていません。')
-        ));
+        Scaffold.of(context)
+            .showSnackBar(const SnackBar(content: Text('名前が入力されていません。')));
         return;
       }
 
@@ -140,15 +139,17 @@ class UserScreenState extends State<UserScreen> {
       int userNum = dummyData.length;
       int iconUrlLenght = iconUrlData.length;
       int num = random.nextInt(iconUrlLenght + 1); // 0〜22までの乱数を取得
-      if(0 != dummyData.length){
-        userNum = dummyData[dummyData.length-1].userNumber;
-        userNum ++;
-      }else{
+      if (0 != dummyData.length) {
+        userNum = dummyData[dummyData.length - 1].userNumber;
+        userNum++;
+      } else {
         userNum = 1;
       }
-      dummyData.add(new UserModel(name: _message,avatarUrl:iconUrlData[num].avatarUrl,userNumber:userNum));
+      dummyData.add(new UserModel(
+          name: _message,
+          avatarUrl: iconUrlData[num].avatarUrl,
+          userNumber: userNum));
       _controller.clear();
     });
   }
-
 }
