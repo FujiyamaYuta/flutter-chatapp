@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/user_model.dart';
+import '../models/select_amida.dart';
 
 
 void main(){
@@ -26,6 +26,7 @@ class _State extends State<StatusScreen>{
       }
       _value1 = value;
       _value2 = false;
+      amidaNumber = 1;
     });
   }
 
@@ -36,6 +37,7 @@ class _State extends State<StatusScreen>{
       }
       _value1 = false;
       _value2 = value;
+      amidaNumber = 2;
     });
   }
 

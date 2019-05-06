@@ -1,11 +1,14 @@
+
+int amidaNumber;
+
 class SelectAmida {
 
   /* 
     1：あみだくじ
     2：当たりくじ
-    3：
+    3：etc
   */
-  final int userNumber;
+  final int amidaNum;
 
-  SelectAmida({this.userNumber});
+  SelectAmida({this.amidaNum});
 }
