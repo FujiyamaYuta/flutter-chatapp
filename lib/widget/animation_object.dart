@@ -12,7 +12,7 @@ class AnimationObject extends StatelessWidget {
         SizedBox(
           width: 120,
           height: 120,
-          child: Image.asset('https://firebasestorage.googleapis.com/v0/b/bingo-card.appspot.com/o/amida-icon%2Ficon_1.png?alt=media&token=e22089ed-848d-4d94-beb4-a2e8fdbaf228'),
+          child: Image.asset('assets/love.png'),
         ),
         Positioned(
           left: 0,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../models/select_amida.dart';
 
 class CallsScreen extends StatefulWidget {
-  static const routeName = 'animatedAlign';
+  // static const routeName = 'animatedAlign';
 
   @override
   _CallsScreenState createState() => _CallsScreenState();
