@@ -14,8 +14,8 @@ class _CallsScreenState extends State<CallsScreen> {
   static const _alignments = [
     Alignment.topLeft,
     Alignment.topRight,
-    Alignment.center,
-    Alignment.centerRight,
+    Alignment.bottomLeft,
+    Alignment.bottomRight,
   ];
 
   var _index = 0;
