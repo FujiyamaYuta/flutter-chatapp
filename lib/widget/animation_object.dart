@@ -8,29 +8,90 @@ class AnimationObject extends StatelessWidget {
   Widget build(BuildContext context) {
     logger.info('build');
     return Stack(
+
       children: [
-        SizedBox(
-          width: 120,
-          height: 120,
-          child: Image.asset('assets/love.png'),
-        ),
-        Positioned(
-          left: 0,
-          right: 0,
-          top: 30,
-          child: ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 10,
-                sigmaY: 10,
-              ),
+
+        Column(
+          children: <Widget>[
+            SizedBox(
+              width: 70,
+              height: 70,
               child: Container(
-                height: 30,
-                color: Colors.white.withAlpha(50),
-              ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Image.asset('assets/amida-icon/icon_1.png'),
+                )
+              )
             ),
-          ),
-        )
+
+            SizedBox(
+              width: 70,
+              height: 70,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Image.asset('assets/amida-icon/icon_2.png'),
+                )
+              )
+            ),
+
+            SizedBox(
+              width: 70,
+              height: 70,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Image.asset('assets/amida-icon/icon_3.png'),
+                )
+              )
+            ),
+
+            SizedBox(
+              width: 70,
+              height: 70,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Image.asset('assets/amida-icon/icon_4.png'),
+                )
+              )
+            ),
+
+            SizedBox(
+              width: 70,
+              height: 70,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Image.asset('assets/amida-icon/icon_5.png'),
+                )
+              )
+            ),
+
+            SizedBox(
+              width: 70,
+              height: 70,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Image.asset('assets/amida-icon/icon_5.png'),
+                )
+              )
+            ),
+
+          ],
+        ),
+
+        // SizedBox(
+        //   width: 70,
+        //   height: 70,
+        //   child: Container(
+        //     child: ClipRRect(
+        //       borderRadius: BorderRadius.circular(100.0),
+        //       child: Image.asset('assets/amida-icon/icon_1.png'),
+        //     )
+        //   )
+        // ),
       ],
     );
   }

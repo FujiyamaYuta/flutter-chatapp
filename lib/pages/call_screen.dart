@@ -14,8 +14,8 @@ class _CallsScreenState extends State<CallsScreen> {
   static const _alignments = [
     Alignment.topLeft,
     Alignment.topRight,
-    Alignment.bottomRight,
-    Alignment.bottomLeft,
+    Alignment.center,
+    Alignment.centerRight,
   ];
 
   var _index = 0;
@@ -35,42 +35,10 @@ class _CallsScreenState extends State<CallsScreen> {
       ),
       child: AnimatedAlign(
         alignment: _alignment,
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 1000),
         child: AnimationObject(),
         curve: Curves.easeInOut,
       ),
     );
   }
 }
-
-
-// void main(){
-//   runApp(new MaterialApp(
-//     home: new CallsScreen(),
-//   ));
-// }
-
-// class CallsScreen extends StatefulWidget {
-//   @override
-//   _State createState() => new _State();
-// }
-
-// //State is information of the application that can change over time or when some actions are taken.
-// class _State extends State<CallsScreen>{
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return new Scaffold(
-//       body: new Container(
-//         padding: new EdgeInsets.all(32.0),
-//         child: new Center(
-//           child: new Column(
-//             children: <Widget>[
-
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
