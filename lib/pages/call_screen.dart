@@ -23,6 +23,7 @@ class _CallsScreenState extends State<CallsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    FocusScope.of(context).requestFocus(new FocusNode()); // ** キーボードを下げる
     return AppScaffold(
       // title: 'AnimatedAlign',
       floatingActionButton: FloatingActionButton(
