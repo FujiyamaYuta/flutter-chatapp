@@ -2,9 +2,10 @@ import 'dart:ui';
 
 import 'package:flutterwhatsapp/util/util.dart';
 import 'package:flutter/material.dart';
-// import '../models/user_model.dart';
+  // import '../models/user_model.dart';
 
 class AnimationObject extends StatelessWidget {
+  // const List<UserModel> = userData;
   @override
   Widget build(BuildContext context) {
     logger.info('build');

@@ -10,22 +10,6 @@ class UserModel {
 List<UserModel> userData = [
   // new UserModel(
   //     name: "YutaFujiwara",
-  //     message: "Hey Flutter, You are so amazing !",
-  //     avatarUrl:
-  //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
-  // new UserModel(
-  //     name: "YutaFujiwara",
-  //     message: "Hey I have hacked whatsapp!",
-  //     avatarUrl:
-  //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
-  // new UserModel(
-  //     name: "YutaFujiwara",
-  //     message: "Wassup !",
-  //     avatarUrl:
-  //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
-  // new UserModel(
-  //     name: "YutaFujiwara",
-  //     message: "I'm good!",
   //     avatarUrl:
   //         "https://ohmygod.jp/assets/img/fujiwara.jpg"),
 ];

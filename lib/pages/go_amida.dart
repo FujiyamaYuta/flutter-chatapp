@@ -20,7 +20,7 @@ class _GoAmidaScreenState extends State<GoAmidaScreen> {
     // Alignment.bottomRight,
   ];
 
-  var _index = 0;
+  var _index = 1;
   AlignmentGeometry get _alignment => _alignments[_index % _alignments.length];
 
   @override
@@ -37,85 +37,39 @@ class _GoAmidaScreenState extends State<GoAmidaScreen> {
         child: const Icon(Icons.refresh),
       ),
       body: new Container(
-        padding: new EdgeInsets.all(32.0),
-          child: new Column(
-            children: <Widget>[
-
-               new ListView.builder(
-      itemCount: userData.length,
-      itemBuilder: (context, i) => new Column(
-            children: <Widget>[
-              new Divider(
-                height: 0,
-              ),
-              new ListTile(
-                leading: new CircleAvatar(
-                  foregroundColor: Theme.of(context).primaryColor,
-                  backgroundColor: Colors.grey,
-                  backgroundImage: new AssetImage(userData[i].avatarUrl)
+        child:ListView.builder(
+          itemCount: userData.length,
+          itemBuilder: (context, int i) {
+            return
+              AnimatedAlign(
+                alignment: _alignment,
+                duration: const Duration(milliseconds: 1000),
+                // child: AnimationObject(),
+                // アイコンを動的に追加
+                child:
+                  Stack(
+                  children: [
+                    Column(
+                      children: <Widget>[
+                        SizedBox(
+                          width: 60,
+                          height: 60,
+                          child: Container(
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100.0),
+                              child: Image.asset(userData[i].avatarUrl),
+                            )
+                          )
+                        ),
+                      ]
+                    )
+                  ]
                 ),
-                title: new Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    new Text(
-                      userData[i].name,
-                      style: new TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                trailing: new Container(
-                  height: 28.0,
-                  width: 28.0,
-                  child: FittedBox(
-                    child: FloatingActionButton(
-                        backgroundColor: Colors.orange[900],
-                        child: Icon(
-                          Icons.close,
-                          color: Colors.white,
-                          size: 20.0,
-                        )),
-                  ),
-                ),
-              )
-            ],
-          ),
-    )
-
-              // AnimatedAlign(
-              //   alignment: _alignment,
-              //   duration: const Duration(milliseconds: 1000),
-              //   child: AnimationObject(),
-              //   curve: Curves.easeInOut,
-              // ),
-              // AnimatedAlign(
-              //   alignment: _alignment,
-              //   duration: const Duration(milliseconds: 1000),
-              //   child: AnimationObject(),
-              //   curve: Curves.easeInOut,
-              // ),
-            ],
-          ),
+                curve: Curves.easeInOut,
+              );
+          },
+        )
       ),
     );
-
-    // AppScaffold(
-    //   body: new Container(
-    //   ),
-    //   // title: 'AnimatedAlign',
-    //   floatingActionButton: FloatingActionButton(
-    //     onPressed: () {
-    //       setState(() {
-    //         _index++;
-    //       });
-    //     },
-    //     child: const Icon(Icons.refresh),
-    //   ),
-    //   child: AnimatedAlign(
-    //     alignment: _alignment,
-    //     duration: const Duration(milliseconds: 1000),
-    //     child: AnimationObject(),
-    //     curve: Curves.easeInOut,
-    //   ),
-    // );
   }
 }
