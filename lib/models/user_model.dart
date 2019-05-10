@@ -7,7 +7,7 @@ class UserModel {
   UserModel({this.name, this.avatarUrl,this.userNumber});
 }
 
-List<UserModel> dummyData = [
+List<UserModel> userData = [
   // new UserModel(
   //     name: "YutaFujiwara",
   //     message: "Hey Flutter, You are so amazing !",

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         accentColor: new Color(0xff25D366),
       ),
       debugShowCheckedModeBanner: false,
-      home: new WhatsAppHome(cameras),
+      home: new AmidaApp(cameras),
     );
   }
 }

@@ -64,7 +64,7 @@ class UserScreenState extends State<UserScreen> {
   // @override
   Widget _buildBody(BuildContext context) {
     return new ListView.builder(
-      itemCount: dummyData.length,
+      itemCount: userData.length,
       itemBuilder: (context, i) => new Column(
             children: <Widget>[
               new Divider(
@@ -74,14 +74,13 @@ class UserScreenState extends State<UserScreen> {
                 leading: new CircleAvatar(
                   foregroundColor: Theme.of(context).primaryColor,
                   backgroundColor: Colors.grey,
-                  backgroundImage: new AssetImage(dummyData[i].avatarUrl)
-                  // backgroundImage: new NetworkImage(dummyData[i].avatarUrl),
+                  backgroundImage: new AssetImage(userData[i].avatarUrl)
                 ),
                 title: new Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     new Text(
-                      dummyData[i].name,
+                      userData[i].name,
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
@@ -113,12 +112,12 @@ class UserScreenState extends State<UserScreen> {
       // 指定のリストを削除する
 
       // ToolTipを表示
-      String userName = dummyData[userNumber].name;
+      String userName = userData[userNumber].name;
       Scaffold.of(context).showSnackBar(SnackBar(
           // backgroundColor: Colors.amberAccent,
           content: Text('$userName\ さんを削除しました。')));
 
-      dummyData.removeAt(userNumber);
+      userData.removeAt(userNumber);
     });
   }
 
@@ -136,16 +135,16 @@ class UserScreenState extends State<UserScreen> {
       }
 
       Random random = new Random();
-      int userNum = dummyData.length;
+      int userNum = userData.length;
       int iconUrlLenght = iconUrlData.length;
       int num = random.nextInt(iconUrlLenght + 1); // 0〜22までの乱数を取得
-      if (0 != dummyData.length) {
-        userNum = dummyData[dummyData.length - 1].userNumber;
+      if (0 != userData.length) {
+        userNum = userData[userData.length - 1].userNumber;
         userNum++;
       } else {
         userNum = 1;
       }
-      dummyData.add(new UserModel(
+      userData.add(new UserModel(
           name: _message,
           avatarUrl: iconUrlData[num].avatarUrl,
           userNumber: userNum));

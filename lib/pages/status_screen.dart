@@ -46,7 +46,8 @@ class _State extends State<StatusScreen>{
   Widget build(BuildContext context) {
     FocusScope.of(context).requestFocus(new FocusNode()); // ** キーボードを下げる
 
-    return new Scaffold(
+    return
+    new Scaffold(
       // appBar: new AppBar(
       //   title: new Text('Name here'),
       // ),

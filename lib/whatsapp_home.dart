@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutterwhatsapp/pages/call_screen.dart';
+import 'package:flutterwhatsapp/pages/go_amida.dart';
 // import 'package:flutterwhatsapp/pages/camera_screen.dart';
 import 'package:flutterwhatsapp/pages/user_screen.dart';
 import 'package:flutterwhatsapp/pages/status_screen.dart';
 
-class WhatsAppHome extends StatefulWidget {
+class AmidaApp extends StatefulWidget {
   var cameras;
-  WhatsAppHome(this.cameras);
+  AmidaApp(this.cameras);
 
   @override
-  _WhatsAppHomeState createState() => new _WhatsAppHomeState();
+  _AmidaAppState createState() => new _AmidaAppState();
 }
 
-class _WhatsAppHomeState extends State<WhatsAppHome>
+class _AmidaAppState extends State<AmidaApp>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
@@ -52,7 +52,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         children: <Widget>[
           new UserScreen(),
           new StatusScreen(),
-          new CallsScreen(),
+          new GoAmidaScreen(),
         ],
       ),
       // floatingActionButton: new FloatingActionButton(
