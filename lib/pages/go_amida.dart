@@ -13,11 +13,12 @@ class GoAmidaScreen extends StatefulWidget {
 }
 
 class _GoAmidaScreenState extends State<GoAmidaScreen> {
+  
   static const _alignments = [
     Alignment.topRight,
     Alignment.topLeft,
-    // Alignment.bottomLeft,
-    // Alignment.bottomRight,
+    Alignment.bottomRight,
+    Alignment.bottomLeft,
   ];
 
   var _index = 1;
@@ -31,6 +32,7 @@ class _GoAmidaScreenState extends State<GoAmidaScreen> {
       floatingActionButton:FloatingActionButton(
         onPressed: () {
           setState(() {
+            userData.shuffle();
             _index++;
           });
         },
